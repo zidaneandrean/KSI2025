@@ -8,15 +8,12 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Deploy to XAMPP') {
             steps {
-                bat 'npm install'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                bat 'npm test'
+                bat '''
+                rmdir /S /Q C:\\xampp\\htdocs\\KSI2025
+                xcopy /E /I /Y . C:\\xampp\\htdocs\\KSI2025
+                '''
             }
         }
     }

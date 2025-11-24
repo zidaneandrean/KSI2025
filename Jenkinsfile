@@ -10,13 +10,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'npm install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'pytest'
+                bat 'npm test'
             }
         }
     }
